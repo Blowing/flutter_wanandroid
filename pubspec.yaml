@@ -31,11 +31,24 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
 
+
+  # 本地依赖
+  #  base_library:
+  #      path: ../FlutterRepos/base_library/
+  # git依赖
+  base_library:
+    git:
+      url: git://github.com/Sky24n/FlutterRepos.git
+      path: base_library
   # Dart 常用工具类库 https://github.com/Sky24n/common_utils
   common_utils: ^1.2.1
   # Flutter 常用工具类库 https://github.com/Sky24n/flustars
   flustars: ^0.3.2
+  # rxdart https://github.com/ReactiveX/rxdart
+  rxdart: ^0.22.6
 
+  # https://github.com/flutterchina/flukit.
+  flukit: ^1.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -60,6 +73,7 @@ flutter:
     - images/guide2.png
     - images/guide3.png
     - images/guide4.png
+    - images/splash_bg.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
