@@ -1,13 +1,11 @@
 
-import 'package:base_library/base_library.dart';
-import 'package:flukit/flukit.dart';
-import 'package:flustars/flustars.dart';
+import 'package:fluintl/fluintl.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_wanandroid/common/common.dart';
-import 'package:flutter_wanandroid/models/models.dart';
+import 'package:flutter_wanandroid/common/component_index.dart';
+import 'package:flutter_wanandroid/res/strings.dart';
 import 'package:flutter_wanandroid/utils/http_utils.dart';
+import 'package:flutter_wanandroid/utils/navigator_util.dart';
 import 'package:flutter_wanandroid/utils/utils.dart';
-import 'package:rxdart/rxdart.dart';
 
 class SplashPage extends StatefulWidget {
   @override
@@ -55,6 +53,33 @@ class SplashPageState extends State<SplashPage> {
               children: _bannerList,) ,
           ),
           _buildAdWidget(),
+          new Offstage(
+            offstage: !(_status == 1),
+            child: new Container(
+              alignment: Alignment.bottomRight,
+              margin: EdgeInsets.all(20.0),
+              child: InkWell(
+                onTap: () {
+                  _goMain();
+                },
+                child: new Container(
+                  padding: EdgeInsets.all(12.0),
+                  child: new Text(
+                    IntlUtil.getString(context, Ids.jump_count,
+                    params: ['$_count']),
+                    style: new TextStyle(fontSize: 14.0, color: Colors.white),
+                  ),
+                  decoration: new BoxDecoration(
+                    color: Color(0x66000000),
+                    borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                    border: new Border.all(
+                      width: 0.33, color: Colours.divider
+                    )
+                  ),
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );
@@ -204,9 +229,24 @@ class SplashPageState extends State<SplashPage> {
           if (ObjectUtil.isEmpty(_splashModel.url))
             return;
           _goMain();
-//          NavigationUtil.put
+          NavigatorUtil.pushWeb(context, title: _splashModel.title, url:
+          _splashModel.url);
         },
-      ),
-    );
+        child: new Container(
+          alignment: Alignment.center,
+          child: new Text("wujie"),
+
+          )
+        ),
+      );
  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    if (_timerUtil != null)
+      _timerUtil.cancel();
+  }
+
+
 }
