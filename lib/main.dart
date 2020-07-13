@@ -3,13 +3,17 @@ import 'package:fluintl/fluintl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'common/Global.dart';
 import 'res/strings.dart';
 import 'ui/main_page.dart';
 import 'ui/splash_page.dart';
 
 
 void main() {
-  runApp(MyApp());
+  Global.init(() {
+    runApp(MyApp());
+  });
+
 }
 
 class MyApp extends StatefulWidget {
