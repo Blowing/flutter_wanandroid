@@ -90,6 +90,8 @@ flutter:
     - assets/images/guide3.png
     - assets/images/guide4.png
     - assets/images/splash_bg.png
+    - assets/images/ali_connors.png
+    - assets/images/ali_connors_sml.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
